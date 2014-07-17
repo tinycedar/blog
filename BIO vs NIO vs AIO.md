@@ -8,7 +8,7 @@
 只需把protocol="HTTP/1.1"改为protocol="org.apache.coyote.http11.Http11NioProtocol"即可。
 
 ###Blocking I/O
-JDK 5.0以前只有BIO的API，通常我们写Client/Server程序都会这么写：
+JDK 4.0以前只有BIO的API，通常我们写Client/Server程序都会这么写：
 
 ```Java
 ServerSocket ss = createServerSocket();
@@ -33,7 +33,7 @@ Handler为一个thread对象，此时每一个请求对应一个thread，即使�
 线程池的大小很关键：如果较小，客户端请求数大于线程池的部分只能排队等待；如果较大，context switch会占用很多时间，一次大概30,000 ns，也就意味着如果有1万个线程，至少需要300 ms后才能处理一遍所有线程，这样有点得不偿失。
 
 ###Non-blocking I/O
-JDK 5.0正式引入NIO API；JDK中NIO其实指的是New I/O。不过Selector/Channel确实达到了non-blocking的目标，虽然本质上其还是同步而非异步，但是还是通过I/O多路复用基本实现了非阻塞的目标。
+JDK 4.0正式引入NIO API；JDK中NIO其实指的是New I/O。不过Selector/Channel确实达到了non-blocking的目标，虽然本质上其还是同步而非异步，但是还是通过I/O多路复用基本实现了非阻塞的目标。
 
 不同平台底层对Selector/Channel的实现不同，Windows基于IOCP，Linux Kernel基于select/poll和epoll，FreeBSD基于kqueue等等。不同平台的JDK的Selector/Channel有着不同的实现，但是提供给我们的接口一致。
 
