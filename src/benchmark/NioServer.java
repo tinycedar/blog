@@ -10,7 +10,7 @@ import java.net.InetSocketAddress;
 
 public class NioServer{
 
-  private Selector selector;
+  private Selector selector ;
 
   public static void main(String[] args) throws IOException{
     new NioServer().init();
