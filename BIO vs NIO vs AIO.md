@@ -43,9 +43,10 @@ SelectionKey key = channel.register(selector, SelectionKey.OP_READ);
 while(true) {
 	selector.select();
 	Iterator iterator = selector.selectedKeys().iterator();
-  while(iterator.hasNext()) {
-    SelectionKey key = iterator.next();
-	new Handler(key).start();
+	while(iterator.hasNext()) {
+    		SelectionKey key = iterator.next();
+		new Handler(key).start();
+	}
 }
 ```
 上述代码只用一个线程就能实现处理所有客户端的请求。注意Selector的select()方法为同步方法，如果当前没有I/O ready就会一直阻塞在那里，一旦只要有一个ready，就会返回并执行下面的代码。相比于BIO，Handler线程永远只处理I/O ready的客户端请求，这样大幅度提高了吞吐量。近年来比较火的Mina/Netty和Node.js底层也是类似的实现。
