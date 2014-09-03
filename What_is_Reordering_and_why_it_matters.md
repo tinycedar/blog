@@ -53,4 +53,4 @@ public class ReorderingTest {
 >rather than by their original order in a program.[1] In doing so, the processor can avoid being idle while
 >data is retrieved for the next instruction in a program, processing instead the next instructions which are able to run immediately.
 
-上面这段话说的很清楚，
+上面这段话说的很清楚了。
