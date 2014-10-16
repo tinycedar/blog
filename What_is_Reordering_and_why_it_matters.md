@@ -2,8 +2,8 @@ What is "Reordering" and why it matters
 ===================
 工作这几年一直在做Web相关的开发，一直忽略了最重要的*基础*。近几年各种新技术层出不穷，这些技术外表看起来
 很新但大都基于几十年来一直都没怎么变的*基础*：比如为高并发而生的Google出的语言Go，Goroutine看起来很高大上
-但还是是基于操作系统的线程，只不过比线程的调度粒度更小而已；比如宣传口号为构建实时系统、高并发而生Node.js，运行
-于Chrome V8，底层I/O基于select/poll/epoll；比如今年超级火爆的虚拟化系统Docker底层基于Linux的LXC。
+但还是基于操作系统的线程，只不过比线程的调度粒度更小而已；比如宣传口号为构建实时系统、高并发而生Node.js，
+跑在Chrome V8引擎上，底层I/O基于“古老”的select/poll/epoll；再比如今年超火的虚拟化系统Docker底层基于LXC。
 所以当你掌握*基础*的时候，这些“新技术”学起来也就会得心应手了。
 
 最近在看*Java Concurrency in Practice*，经常碰到一个词——Reordering，由于我基础差导致难以正确理解Reordering的含义。
