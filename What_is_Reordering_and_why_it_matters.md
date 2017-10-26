@@ -1,17 +1,17 @@
 What is "Reordering" and why it matters
 ===================
-工作这几年一直在做Web相关的开发，一直忽略了最重要的*基础*。近几年各种新技术层出不穷，这些技术外表看起来
+工作这几年一直在做服务端相关的开发，一直忽略了最重要的*基础*。近几年各种新技术层出不穷，这些技术外表看起来
 很新但大都基于几十年来一直都没怎么变的*基础*：比如为高并发而生的Google开发的语言Go，Goroutine看起来很高大上
-但还是基于线程，只不过比线程的调度粒度更小而已；比如宣传口号为构建实时系统、事件驱动而生Node.js，
+但还是基于线程，只不过比线程的调度粒度更小而已；比如宣传口号为构建实时系统、事件驱动的Node.js，
 跑在Chrome V8引擎上，底层I/O基于“古老”的select/poll/epoll；再比如今年超火的虚拟化系统Docker底层基于LXC和cgroup。
-所以当你掌握*基础*的时候，这些“新技术”学起来也就会得心应手了。
+所以当你掌握*基础*的时候，这些所谓的“新技术”学起来也就会得心应手了。
 
 最近在看*Java Concurrency in Practice*，经常碰到一个词——Reordering，由于我基础差导致难以正确理解Reordering的含义。
-而这个词贯穿全书，线程不安全很大一部分是由于Reordering引起的，重要性显而易见。经过查阅相关资料，本文以下部分是本人
-的对Reordering的一些浅显的理解。
+而这个词贯穿全书，有一部分线程不安全是由于Reordering引起的，其重要性显而易见。经过查阅相关资料，以下部分是本人
+对Reordering一些浅显的理解。
 ***
 
-前段时间我在微信上贴了一段代码，让大家猜程序的所有可能运行结果，代码如下所示：
+前段时间我在微信上贴了一段代码，让大家猜程序的所有可能运行结果，代码如下：
 ```Java
 public class ReorderingTest {
     private static boolean ready;
@@ -21,8 +21,8 @@ public class ReorderingTest {
         public void run() {
             while (!ready)
                 Thread.yield();
-                System.out.println(number);
             }
+            System.out.println(number);
         }
     }
 
@@ -45,7 +45,7 @@ public class ReorderingTest {
 
 那么下面我们来看看Reordering到底是什么。
 
-##Reordering / OoOE
+## Reordering / OoOE
 下面是Wiki对于Reordering或Out-of-order execution的定义：
 >In computer engineering, out-of-order execution (OoOE or OOE) is a paradigm used in most high-performance microprocessors
 >to make use of instruction cycles that would otherwise be wasted by a certain type of costly delay.
