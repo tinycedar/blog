@@ -1,0 +1,209 @@
+# http://gohugo.io/getting-started/configuration/#yaml-configuration
+
+baseURL: http://tinycedar.com/
+title: Daniel's blog
+#copyright: ''            # default: author.name
+
+theme: even
+# https://themes.gohugo.io/hugo-theme-even/
+
+#disqusShortname: tinycedar  # Disqus shortname
+googleAnalytics: UA-81240089-1  # Google Analytics ID
+
+languageCode: zh-cn
+defaultContentLanguage: zh-cn
+#defaultContentLanguageInSubdir: false
+hasCJKLanguage: true
+
+enableEmoji: true
+enableGitInfo: true
+#enableRobotsTXT: true
+# https://gohugo.io/templates/robots/
+
+metaDataFormat: yaml
+preserveTaxonomyNames: true
+
+paginate: 10
+
+frontmatter:
+  date: ['date', ':filename', ':default']
+  lastmod: ['lastmod', ':git', ':fileModTime', ':default']
+
+
+### PERMA LINKS ###
+# https://gohugo.io/content-management/urls/#canonicalization
+disablePathToLower: true
+permalinks:
+  post: /:sections/:year/:month/:day/:slug
+#  game: /:sections/:year/:month/:day/:slug
+
+
+### SITE VARIABLES ###
+# http://gohugo.io/variables/site/
+
+author:
+  name: Daniel Lin  # <meta name="author" content="">
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml
+
+# http://gohugo.io/content-management/menus/#add-non-content-entries-to-a-menu
+menu:
+  main:
+    - name: Home
+      weight: 10
+      identifier: home
+      url: /
+    - name: Archives
+      weight: 20
+      identifier: archives
+      url: /post/
+    - name: Tags
+      weight: 30
+      identifier: tags
+      url: /tags/
+    - name: Categories
+      weight: 40
+      identifier: categories
+      url: /categories/
+#    - name: Games
+#      weight: 50
+#      identifier: games
+#      url: /game/
+    - name: About
+      weight: 100
+      identifier: about
+      url: /about
+
+params:
+  version: 3.x  # Used to give a friendly message when you have an incompatible update
+  debug: false  # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
+
+  since: 2016
+
+  # site info (optional)                                  # 站点信息（可选，不需要的可以直接注释掉）
+  #logoTitle: ''        # default: the title value    # 默认值: 上面设置的title值
+  keywords: ['load testing', 'tuning', '性能测试', '调优']  # <meta name="keywords" content="">
+  description: 记录性能测试和调优的心得。  # <meta name="description" content="">
+
+  # paginate of archives, tags and categories             # 归档、标签、分类每页显示的文章数目，建议修改为一个较大的值
+  archivePaginate: 20
+
+  # The date format to use; for a list of valid formats, see https://gohugo.io/functions/format/
+  dateFormatToUse: '2006-01-02'
+
+  # show word count and read time ?                       # 是否显示字数统计与阅读时间
+  moreMeta: true
+
+  # 一些全局开关，你也可以在每一篇内容的 front matter 中针对单篇内容关闭或开启某些功能，在 archetypes/default.md 查看更多信息。
+  # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
+  toc: true                                                                            # 是否开启目录
+  autoCollapseToc: false   # Auto expand and collapse toc                              # 目录自动展开/折叠
+  fancybox: true           # see https://github.com/fancyapps/fancybox                 # 是否启用fancybox（图片可点击）
+  mathjax: true           # see https://www.mathjax.org/                              # 是否使用mathjax（数学公式）
+  mathjaxEnableSingleDollar: true                                                     # 是否使用 $...$ 即可進行inline latex渲染
+  mathjaxEnableAutoNumber: false                                                       # 是否使用公式自动编号
+
+  postMetaInFooter: true   # contain author, lastMod, markdown link, license           # 包含作者，上次修改时间，markdown链接，许可信息
+  linkToMarkDown: false    # Only effective when hugo will output .md files.           # 链接到markdown原始文件（仅当允许hugo生成markdown文件时有效）
+  contentCopyright: '<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>'
+
+  #changyanAppid: ""        # Changyan app id             # 畅言
+  #changyanAppkey: ""       # Changyan app key
+  #livereUID: ""            # LiveRe UID                  # 来必力
+  #baidu_push: false        # baidu push                  # 百度
+  #baidu_analytics: ""      # Baidu Analytics
+  #baidu_verification: ""   # Baidu Verification  # <meta name="baidu-site-verification" content="" />
+  google_verification: '0a3HFkiNXuBV7zv3VJQyVVHctAFi3N6wP3KO6o8vErw'  # Google_Verification  # <meta name="google-site-verification" content="" />
+
+  # Link custom CSS and JS assets
+  #   (relative to /static/css and /static/js respectively)
+  #customCSS: []
+  #customJS: []
+
+  publicCDN:        # load these files from public cdn                          # 启用公共CDN，需自行定义
+    enable: true
+    jquery: '<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>'
+    slideout: '<script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>'
+    fancyboxJs: '<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>'
+    fancyboxCss: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">'
+    gitmentJS: '<script src="https://cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js" crossorigin="anonymous"></script>'
+    gitmentCSS: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css" crossorigin="anonymous">'
+    gitalkJS: '<script src="https://cdn.jsdelivr.net/npm/gitalk@1.2.2/dist/gitalk.min.js" integrity="sha256-DcjhdbufsHMHflFjZtKNFnPKOAL2ybOxGcPOR4MtnJg=" crossorigin="anonymous"></script>'
+    gitalkCSS: '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.2.2/dist/gitalk.css" integrity="sha256-rJVe5uyYRXdLM+Kkoj7JtN+9qI0bZTxkYTaNWODpg7U=" crossorigin="anonymous">'
+    timeagoJS: '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>'
+    timeagoLocalesJS: '<script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>'
+
+  # Display a message at the beginning of an article to warn the readers that it's content may be outdated.
+  # 在文章开头显示提示信息，提醒读者文章内容可能过时。
+  outdatedInfoWarning:
+    enable: true
+    hint: 30        # Display hint if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示提醒
+    warn: 180       # Display warning if the last modified time is more than these days ago.    # 如果文章最后更新于这天数之前，显示警告
+
+  gitment:          # Gitment is a comment system based on GitHub issues. see https://github.com/imsun/gitment
+    owner: tinycedar              # Your GitHub ID
+    repo: blog               # The repo to store comments
+    clientId: 148b3112a3733187dc84           # Your client ID
+    clientSecret: ec0f9b37322c074fa711b7f31645295e762bce72       # Your client secret
+
+  #gitalk:           # Gitalk is a comment system based on GitHub issues. see https://github.com/gitalk/gitalk
+    #owner: tinycedar              # Your GitHub ID
+    #repo: https://github.com/tinycedar/blog               # The repo to store comments
+    #clientId: 9c5fb60edf9211e8d9cd           # Your client ID
+    #clientSecret: b86a009c4f2b00f4dce2d80cf94f8eb8ff63382c       # Your client secret
+
+  flowchartDiagrams:  # see https://blog.olowolo.com/example-site/post/js-flowchart-diagrams/
+    enable: true
+    #options: ''
+
+  sequenceDiagrams:  # see https://blog.olowolo.com/example-site/post/js-sequence-diagrams/
+    enable: true
+    #options: ''           # default: "{theme: 'simple'}"
+
+  busuanzi:         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
+    enable: true
+    siteUV: true
+    sitePV: true
+    pagePV: true
+
+  reward:                                         # 文章打赏
+    enable: true
+    wechat: "/img/reward/wechat.png"           # 微信二维码
+    alipay: "/img/reward/alipay.jpg"           # 支付宝二维码
+
+  social:                                         # 社交链接
+    a-github: https://github.com/tinycedar
+    b-douban: https://www.douban.com/people/133443683/
+    #c-zhihu: http://localhost:1313
+    #d-linkedin: http://localhost:1313
+    #e-email: 'mailto:qienlin@gmail.com'
+    #f-weibo: http://localhost:1313
+    #b-stack-overflow = "http://localhost:1313"
+    #d-facebook: "http://localhost:1313"
+    #c-twitter: "http://localhost:1313"
+    #f-google: "http://localhost:1313"
+    #k-pocket: "http://localhost:1313"
+    #l-tumblr: "http://localhost:1313"
+    #m-instagram: "http://localhost:1313"
+
+# 将下面这段配置取消注释可以使 hugo 生成 .md 文件
+# Uncomment these options to make hugo output .md files.
+#mediaTypes:
+#  text/plain:
+#    suffix: md
+#
+#outputFormats:
+#  MarkDown:
+#    mediaType: text/plain
+#    isPlainText: true
+#    isHTML: false
+#
+#outputs
+#  home: ["HTML", "RSS"]
+#  page: ["HTML", "MarkDown"]
+#  section: ["HTML", "RSS"]
+#  taxonomy: ["HTML", "RSS"]
+#  taxonomyTerm: ["HTML"]

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ -d public ]]; then
+    GLOBIGNORE=*.git
+    rm -rf -v public/*
+fi
+
+hugo
+
+if [[ -n "$1" ]]; then
+    cd public
+    git add -A
+    git commit -m "$1"
+    git push
+fi
