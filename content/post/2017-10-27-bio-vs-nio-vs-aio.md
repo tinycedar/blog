@@ -1,5 +1,5 @@
 ---
-slug: build-your-own-blog1
+slug: bio-vs-nio-vs-aio
 title: "BIO vs NIO vs AIO"
 date: 2017-10-27T02:34:08+08:00
 draft: false
