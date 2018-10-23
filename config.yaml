@@ -171,8 +171,7 @@ params:
 
   reward:                                         # 文章打赏
     enable: true
-    wechat: "/img/reward/wechat.png"           # 微信二维码
-    alipay: "/img/reward/alipay.jpg"           # 支付宝二维码
+    wechat: "/img/reward/wechat.jpg"           # 微信二维码
 
   social:                                         # 社交链接
     a-github: https://github.com/tinycedar
