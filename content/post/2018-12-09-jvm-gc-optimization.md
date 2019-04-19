@@ -97,7 +97,7 @@ Hotspot的基础知识，网上可谓汗牛充栋，GC优化相关的文章基�
 Keeps safepoints in counted loops. Its default value is false. 强烈建议开启，具体原因详见以下部分分析。
 
 ## 关于SafePoint（安全点）优化
-为什么会关注这个问题呢？在我们调优GC过程中，GC日志里总能发现比较大的GCApplicationStoppedTime，但是又不清楚到底是什么原因触发的。经过一系列Google，发现Hopspot提供了安全点相关日志选项，能输出所有暂停的原因和准确时间。具体参数详见```GC安全点日志```部分。
+为什么会关注这个问题呢？在我们调优GC过程中，GC日志里总能发现比较大的GCApplicationStoppedTime，但是又不清楚到底是什么原因触发的。经过一系列Google，发现Hotspot提供了安全点相关日志选项，能输出所有暂停的原因和准确时间。具体参数详见```GC安全点日志```部分。
 
 不了解安全点的童鞋，先看这篇**江南白衣**写的文章：[JVM的Stop The World，安全点，黑暗的地底世界](http://calvin1978.blogcn.com/articles/safepoint.html)，写得非常好，深入浅出。看完了是不是有点意犹未尽的感觉😄，应该还想问：“我大概了解了，但能不能给点实际的例子？”，OK，下面就来一个***简单必现***的SafePoint相关的demo：
 ```Java
