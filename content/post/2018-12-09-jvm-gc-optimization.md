@@ -83,7 +83,7 @@ Hotspot的基础知识，网上可谓汗牛充栋，GC优化相关的文章基�
 
 ## 几个重要的参数
 
-对服务端程序来说，Young GC引起的暂停是最需要关注的，毕竟绝大部分时间Minor/Full GC并不会被触发。因此GC调优基本就变成了如何尽可能缩短Young GC的暂停时间。下面说说可能对Young GC影响较大的参数。
+对服务端程序来说，Young GC引起的暂停是最需要关注的，毕竟绝大部分时间Major/Full GC并不会被触发。因此GC调优基本就变成了如何尽可能缩短Young GC的暂停时间。下面说说可能对Young GC影响较大的参数。
 
 ### -XX:MaxTenuringThreshold=2
 这或许是对Young GC影响最大的参数了。对象在Survivor区最多熬过多少次Young GC后晋升到年老代，JDK8里CMS 默认是6，其他如G1是15。对大部分应用来说，这个值建议设得小一点，让Survivor区的内存尽早晋升到年老代。
