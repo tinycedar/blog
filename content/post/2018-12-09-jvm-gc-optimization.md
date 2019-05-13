@@ -12,9 +12,9 @@ JVM上的GC，解放了程序员的生产力，使内存手动管理变成了上
 ## 先看效果
 XX系统，做为XXXX部门**最底层**、**流量最大**的应用，接口RT(响应时间)的重要性显而易见；而影响RT稳定性的众多因素里，GC STW（Stop The World）引起的暂停时间或许是最容易被忽视的。下图是优化前后Young GC暂停时间对比，从**60ms左右** 降到了**10ms左右**。
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxzr8g1cndj31250aawfv.jpg)
+![](https://ae01.alicdn.com/kf/UTB8t36yM4HEXKJk43Je761eeXXaC.png)
 
-![](https://ws3.sinaimg.cn/large/006tNbRwly1fxzsg4hcqij31ws0m0ajg.jpg)
+![](https://ae01.alicdn.com/kf/UTB8pIYnMVfFXKJk43Ot760IPFXar.png)
 
 ## 再看参数
 ### 0. 机器配置
