@@ -22,7 +22,8 @@ googleAnalytics = "UA-138653508-1"      # UA-XXXXXXXX-X
 
 disablePathToLower = true
 [permalinks]
-  post = "/:sections/:year/:month/:day/:slug"
+  post = "/:sections/:slug"
+#  post = "/:sections/:year/:month/:day/:slug"
 
 [author]                  # essential                     # 必需
   name = "Daniel Lin"

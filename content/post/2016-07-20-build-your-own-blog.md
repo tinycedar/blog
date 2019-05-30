@@ -1,5 +1,5 @@
 ---
-slug: build-your-own-blog1
+slug: build-your-own-blog
 title: "GitHub + Hugo 搭建个人博客"
 date: 2016-07-20T02:16:04+08:00
 draft: false

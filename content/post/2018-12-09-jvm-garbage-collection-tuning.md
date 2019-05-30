@@ -1,14 +1,15 @@
 ---
-slug: jvm-gc-optimization
+slug: jvm-garbage-collection-tuning
 keywords:
-- GC optimization
-- Garbage collector tuning
+- Java虚拟机
+- JVM GC调优实践
+- 虚拟机垃圾回收
+- GC调优
+- 安全点
+- Garbage collection tuning
+- GC tuning
 - JVM GC
 - SafePoint
-- Java虚拟机
-- GC优化
-- Java虚拟机GC
-- 安全点
 title: '线上JVM GC调优实践'
 description: 生产环境Java虚拟机GC优化实践；JVM Garbage collector tuning in production environment
 date: 2018-12-09T15:09:26+08:00
